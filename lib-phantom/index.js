@@ -40,7 +40,7 @@ page.open(args.in, function(status) {
       height: '0.6in',
       contents: phantom.callback(function(pageNum, numPages) {
         if (pageNum === 1) { return; }
-        return "<footer style='display: table; text-align: center; font-size: 8pt; height: 100%; width: 100%;'><p style='display: table-cell; vertical-align: bottom;'>" + args.footerAdditionalHTML + "page " + pageNum + " of " + numPages + "</footer>";
+        return "<footer style='display: table; text-align: center; font-size: 8pt; height: 100%; width: 100%;'><p style='display: table-cell; vertical-align: bottom;'>" + args.footerAdditionalHTML + "page " + pageNum + " of " + numPages + "</p></footer>";
       })
     }
   };
