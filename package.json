@@ -1,51 +1,52 @@
 {
-  "name": "jade-pdf-redline"
-, "version": "0.0.2"
-, "description": "Jade to PDF converter"
-, "main": "index.js"
-, "keywords": [
-    "jade"
-  , "pdf"
-  , "convert"
-  , "template"
-  ]
-, "author": "Tom Ripley"
-, "homepage": "htps://github.com/redpelicans/jade-pdf-redline"
-, "repository": {
-    "type": "git"
-  , "url": "git@github.com:redpelicans/jade-pdf-redline.git"
-  }
-, "bugs": {
+  "name": "jade-pdf-redline",
+  "version": "0.0.2",
+  "description": "Jade to PDF converter",
+  "main": "index.js",
+  "keywords": [
+    "jade",
+    "pdf",
+    "convert",
+    "template"
+  ],
+  "author": "Tom Ripley",
+  "homepage": "htps://github.com/redpelicans/jade-pdf-redline",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:redpelicans/jade-pdf-redline.git"
+  },
+  "bugs": {
     "url": "https://github.com/redpelicans/jade-pdf-redline/issues"
-  }
-, "licenses": {
-    "type": "MIT"
-  , "url": "https://github.com/redpelicans/jade-pdf-redline/blob/master/LICENSE"
-  }
-, "dependencies": {
-    "through": "~2.3.4"
-  , "jade": "~1.1.5"
-  , "phantomjs": "~1.9.7-1"
-  , "tmp": "~0.0.23"
-  , "duplexer": "~0.1.1"
-  , "commander": "~2.1.0"
-  }
-, "devDependencies": {
-    "mocha": "latest"
-  , "mocha-lcov-reporter": "latest"
-  , "should": "latest"
-  , "coveralls": "latest"
-  , "jscoverage": "latest"
-  , "jshint": "latest"
-  }
-, "engines": {
+  },
+  "licenses": {
+    "type": "MIT",
+    "url": "https://github.com/redpelicans/jade-pdf-redline/blob/master/LICENSE"
+  },
+  "dependencies": {
+    "commander": "~2.1.0",
+    "duplexer": "~0.1.1",
+    "jade": "~1.1.5",
+    "phantomjs": "~1.9.7-1",
+    "through": "~2.3.4",
+    "tmp": "~0.0.23",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "mocha": "latest",
+    "mocha-lcov-reporter": "latest",
+    "should": "latest",
+    "coveralls": "latest",
+    "jscoverage": "latest",
+    "jshint": "latest"
+  },
+  "engines": {
     "node": "~0.10.0"
-  }
-, "scripts": {
-    "test": "make test"
-  , "coveralls": "make test-coveralls"
-  }
-, "bin": {
+  },
+  "scripts": {
+    "test": "make test",
+    "coveralls": "make test-coveralls"
+  },
+  "bin": {
     "jade-pdf": "bin/jade-pdf"
   }
 }

@@ -2,7 +2,8 @@
 'use strict';
 
 var system = require('system')
-  , page = require('webpage').create();
+  , page = require('webpage').create()
+  , _ = require('underscore');
 
 var args = [
   'in'
@@ -11,7 +12,7 @@ var args = [
 , 'paperFormat'
 , 'paperOrientation'
 , 'paperBorder'
-, 'footerAdditionalHTML'
+, 'footerTemplate'
 , 'renderDelay'
 ].reduce(function(args, name, i) {
   args[name] = system.args[i+1];
@@ -40,7 +41,7 @@ page.open(args.in, function(status) {
       height: '0.6in',
       contents: phantom.callback(function(pageNum, numPages) {
         if (pageNum === 1) { return ''; }
-        return "<footer style='display: table; text-align: center; font-size: 8pt; height: 100%; width: 100%;'><p style='display: table-cell; vertical-align: bottom;'>" + args.footerAdditionalHTML + "page " + pageNum + " of " + numPages + "</p></footer>";
+        return _.template(args.footerTemplate)({ pageNum: pageNum, numPages: numPages });
       })
     }
   };
