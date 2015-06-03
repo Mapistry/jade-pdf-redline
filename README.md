@@ -61,7 +61,8 @@ Default value: `{}`
 ##### options.footerTemplate
 Type: `String`
 Default value: `''`
-*Underscore template*
+*Underscore template*<br>
+[See the Underscore docs](http://underscorejs.org/#template)
 
 ##### options.jadeOptions
 Type: `Object`
