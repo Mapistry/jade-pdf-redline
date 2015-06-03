@@ -60,7 +60,7 @@ Default value: `{}`
 
 ##### options.footerTemplate
 Type: `String`
-Default value: `''`<br>
+Default value: `''`
 *Underscore template*
 
 ##### options.jadeOptions
