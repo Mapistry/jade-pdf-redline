@@ -26,15 +26,15 @@ page.open(args.in, function(status) {
     return;
   }
 
-  // By convention, pages to ignore are marked with the class 'excluded-from-page-count'
+  // By convention, a meta tag with attribute 'data-num-pages-to-exclude' can provide num of pages to exclude
   // TODO: Find a non-hacky and more robust way to do this.
-  var pageIgnoreMatches = page.content.match(/excluded-from-page-count/g);
-  var numOfPagesToIgnore = pageIgnoreMatches ? pageIgnoreMatches.length : 0;
+  var pageIgnoreMatches = page.content.match(/data-num-pages-to-exclude="([0-9]+)/);
+  var numOfPagesToIgnore = pageIgnoreMatches && pageIgnoreMatches[1] ? pageIgnoreMatches[1] : 0;
   var phantomFooterCallback = function(pageNum, numPages) {
     if (pageNum === 1) { return ''; }
     numPages = numPages - numOfPagesToIgnore;
     return _.template(args.footerTemplate)({ pageNum: pageNum, numPages: numPages });
-  }
+  };
 
   page.evaluate(function(cssPath) {
     var css = document.createElement('link');
