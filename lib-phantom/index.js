@@ -27,7 +27,8 @@ page.open(args.in, function(status) {
   }
 
   // By convention, pages to ignore are marked with the class 'excluded-from-page-count'
-  var pageIgnoreMatches = page.content.match(/\.excluded-from-page-count/g);
+  // TODO: Find a non-hacky and more robust way to do this.
+  var pageIgnoreMatches = page.content.match(/excluded-from-page-count/g);
   var numOfPagesToIgnore = pageIgnoreMatches ? pageIgnoreMatches.length : 0;
   var phantomFooterCallback = function(pageNum, numPages) {
     if (pageNum === 1) { return ''; }
