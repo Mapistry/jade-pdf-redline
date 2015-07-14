@@ -26,6 +26,15 @@ page.open(args.in, function(status) {
     return;
   }
 
+  // By convention, pages to ignore are marked with the class 'excluded-from-page-count'
+  var pageIgnoreMatches = page.content.match(/\.excluded-from-page-count/g);
+  var numOfPagesToIgnore = pageIgnoreMatches ? pageIgnoreMatches.length : 0;
+  var phantomFooterCallback = function(pageNum, numPages) {
+    if (pageNum === 1) { return ''; }
+    numPages = numPages - numOfPagesToIgnore;
+    return _.template(args.footerTemplate)({ pageNum: pageNum, numPages: numPages });
+  }
+
   page.evaluate(function(cssPath) {
     var css = document.createElement('link');
     css.rel = 'stylesheet';
@@ -39,10 +48,7 @@ page.open(args.in, function(status) {
   , border: JSON.parse(args.paperBorder)
   , footer: {
       height: '0.6in',
-      contents: phantom.callback(function(pageNum, numPages) {
-        if (pageNum === 1) { return ''; }
-        return _.template(args.footerTemplate)({ pageNum: pageNum, numPages: numPages });
-      })
+      contents: phantom.callback(phantomFooterCallback)
     }
   };
 
