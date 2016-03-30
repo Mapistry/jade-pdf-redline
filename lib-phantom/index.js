@@ -40,7 +40,6 @@ page.open(args.in, function(status) {
   , footer: {
       height: '0.6in',
       contents: phantom.callback(function(pageNum, numPages) {
-        if (pageNum === 1) { return ''; }
         return _.template(args.footerTemplate)({ pageNum: pageNum, numPages: numPages });
       })
     }
