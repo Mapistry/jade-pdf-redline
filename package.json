@@ -1,6 +1,6 @@
 {
   "name": "jade-pdf-redline",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Jade to PDF converter",
   "main": "index.js",
   "keywords": [
