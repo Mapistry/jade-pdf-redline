@@ -12,6 +12,7 @@ var args = [
 , 'paperFormat'
 , 'paperOrientation'
 , 'paperBorder'
+, 'headerTemplate'
 , 'footerTemplate'
 , 'renderDelay'
 ].reduce(function(args, name, i) {
@@ -37,6 +38,12 @@ page.open(args.in, function(status) {
     format: args.paperFormat
   , orientation: args.paperOrientation
   , border: JSON.parse(args.paperBorder)
+  , header: {
+    height: '0.6in',
+    contents: phantom.callback(function(pageNum, numPages) {
+      return _.template(args.headerTemplate)({ pageNum: pageNum, numPages: numPages });
+    })
+  }
   , footer: {
       height: '0.6in',
       contents: phantom.callback(function(pageNum, numPages) {

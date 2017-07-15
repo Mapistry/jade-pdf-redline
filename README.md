@@ -58,6 +58,12 @@ Type: `Object`
 Default value: `{}`
 *Locals for template*
 
+##### options.headerTemplate
+Type: `String`
+Default value: `''`
+*Underscore template*<br>
+[See the Underscore docs](http://underscorejs.org/#template)
+
 ##### options.footerTemplate
 Type: `String`
 Default value: `''`
